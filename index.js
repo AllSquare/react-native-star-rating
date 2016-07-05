@@ -77,24 +77,41 @@ class StarRating extends Component {
         starIconName = this.props.halfStar;
         starIconColor = this.props.fullColor;
       }
-      starButtons.push(
-        <Button
-          activeOpacity={0.20}
-          disabled={this.props.disabled}
-          key={i + 1}
-          onPress={this.pressStarButton.bind(this, i + 1)}
-          style={{
-            height: this.props.starSize,
-            width: this.props.starSize,
-          }}
-        >
+      if (this.props.disabled) {
+        starButtons.push(
+          <View
+            key={i + 1}
+            style={{
+              height: this.props.starSize,
+              width: this.props.starSize,
+            }}>
           <Icon
             name={starIconName}
             size={this.props.starSize}
             color={starIconColor}
           />
-        </Button>
-      );
+          </View>
+        );
+      } else {
+        starButtons.push(
+          <Button
+            activeOpacity={0.20}
+            disabled={this.props.disabled}
+            key={i + 1}
+            onPress={this.pressStarButton.bind(this, i + 1)}
+            style={{
+              height: this.props.starSize,
+              width: this.props.starSize,
+            }}
+          >
+            <Icon
+              name={starIconName}
+              size={this.props.starSize}
+              color={starIconColor}
+            />
+          </Button>
+        );
+      }
       starsLeft--;
     }
     return (

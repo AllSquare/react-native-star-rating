@@ -33,7 +33,7 @@ And then set up [react-native-vector-icons](https://github.com/oblador/react-nat
 |**`iconSet`**|`string`|The name of the icon set the star image belongs to. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons).  |`No`|`FontAwesome`|
 |**`maxStars`**|`number`|The maximum number of stars possible. |`No`|`5`|
 |**`rating`**|`number`|The current rating to show.  |`No`|`0`|
-|**`selectedStar`**|`function`|A function to handle star button presses. |`No`|*None*|
+|**`selectedStar`**|`function`|A function to handle star button presses. |`Yes, unless `disabled` property is set.`|*None*|
 |**`fullColor`**|`string`|Color of a full or half star. |`No`|`black`|
 |**`emptyColor`**|`string`|Color of an empty star. |`No`|`black`|
 |**`starSize`**|`number`|Size of the star. |`No`|`40`|
