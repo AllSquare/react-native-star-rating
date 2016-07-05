@@ -69,10 +69,13 @@ class StarRating extends Component {
     for (var i = 0; i < this.state.maxStars; i++) {
       const Icon = iconSets[this.props.iconSet];
       var starIconName = this.props.emptyStar;
+      var starIconColor = this.props.emptyColor;
       if (starsLeft >= 1) {
         starIconName = this.props.fullStar;
+        starIconColor = this.props.fullColor;
       } else if (starsLeft === 0.5) {
         starIconName = this.props.halfStar;
+        starIconColor = this.props.fullColor;
       }
       starButtons.push(
         <Button
@@ -88,7 +91,7 @@ class StarRating extends Component {
           <Icon
             name={starIconName}
             size={this.props.starSize}
-            color={this.props.starColor}
+            color={starIconColor}
           />
         </Button>
       );
@@ -110,8 +113,9 @@ StarRating.propTypes = {
   iconSet: PropTypes.string,
   maxStars: PropTypes.number,
   rating: PropTypes.number,
-  selectedStar: PropTypes.func.isRequired,
-  starColor: PropTypes.string,
+  selectedStar: PropTypes.func,
+  fullColor: PropTypes.string,
+  emptyColor: PropTypes.string,
   starSize: PropTypes.number
 }
 
@@ -123,7 +127,8 @@ StarRating.defaultProps = {
   iconSet: 'FontAwesome',
   maxStars: 5,
   rating: 0,
-  starColor: 'black',
+  fullColor: 'black',
+  emptyColor: 'black',
   starSize: 40
 }
 
